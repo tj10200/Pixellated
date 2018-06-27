@@ -1,0 +1,47 @@
+<div class="sidebar-wrapper">
+    <button class="sidebar-button" (click)="clearCanvas()" mat-raised-button color="warn">Clear Canvas</button>
+    <button 
+        class="sidebar-icon-button" 
+        mat-icon-button
+        title="Save File"
+        (click)="fileinputsave.click()" >
+        <img height="40" width="40" src="https://png.icons8.com/ios/50/000000/save.png">
+    </button>
+    <input 
+        class="sidebar-input-textbox"
+        type="text" 
+        (change)="saveCanvases($event)" 
+        placeholder="filename"
+        #fileinputsave >
+    <button 
+        class="sidebar-icon-button" 
+        mat-icon-button
+        title="Load File"
+        (click)="fileinputload.click()" >
+        <img height="40" width="40" src="https://png.icons8.com/wired/50/000000/upload.png">
+    </button>
+
+    <mat-button-toggle-group name="tools" aria-label="tools" class="sidebar-tools" 
+        #group="matButtonToggleGroup" 
+        [value]="tool" 
+        (change)="changeTool(group.value)" >
+      <mat-button-toggle 
+        value="0"
+        title="Draw">
+       <img 
+            height="30" 
+            width="30" 
+            src="https://png.icons8.com/metro/50/000000/edit.png"> 
+      </mat-button-toggle>
+      <mat-button-toggle 
+        value="1"
+        title="Erase">
+        <img 
+            height="40" 
+            width="40" 
+            src="https://png.icons8.com/dotty/50/000000/erase.png">
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <input style="visibility: hidden;" type="file" (change)="selectFile($event)" #fileinputload >
+</div>
+

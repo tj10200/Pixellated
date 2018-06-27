@@ -1,0 +1,44 @@
+<mat-card class="color-wheel">
+  <mat-card-content>
+    <h2 class="color-header">Brush Color: 
+        <button [(colorPicker)]="color" [ngStyle]="setColorStyle()" style="background-color: #000;"></button>
+    </h2>
+    <!--<input [(colorPicker)]="color" [ngModel]="color"/>-->
+  </mat-card-content>
+</mat-card>
+<mat-card class="animation">
+  <mat-card-content>
+    <mat-expansion-panel>
+        <app-canvas name="canvas_animation" id="animation" width=200 height=200></app-canvas>
+        <mat-expansion-panel-header>
+            <mat-panel-description>Animation toolbox</mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-slide-toggle 
+            color="warn"
+            (change)="startAnimation($event)">Play</mat-slide-toggle>
+        <p>FPS</p>
+        <mat-slider 
+            min="8" 
+            max="60" 
+            step="1" 
+            value="30" 
+            [thumbLabel]="true"
+            [(ngModel)]="fps" 
+            (change)="interval=1000/fps">
+        </mat-slider>
+        <mat-grid-list cols="5" rowHeight="40px">
+          <mat-grid-tile
+              *ngFor="let tile of animationTiles"
+              [colspan]=1
+              [rowspan]=1 >
+              <mat-button-toggle 
+                [checked]="tile.selected" 
+                (change)="tile.selected = $event.source.checked"
+                value="0">
+              {{tile.num}}
+              </mat-button-toggle>
+          </mat-grid-tile>
+        </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-card-content>
+</mat-card>

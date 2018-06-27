@@ -1,0 +1,14 @@
+<div class="frame-wrapper">
+    <h3>Frames</h3>
+    <div *ngFor="let frame of frames.split(',')" >
+        <app-canvas 
+            canvasname="{{frame}}" 
+            width=100 
+            height=100 
+            pixelwidth=25 
+            pixelheight=25 
+            (click)="select_frame($event.srcElement)"
+        >
+        </app-canvas>
+    </div>
+</div>

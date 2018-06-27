@@ -1,0 +1,38 @@
+@import "../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 150px  430px minmax( 200px, 300px ); 
+    grid-auto-rows: 80px auto auto; 
+}
+
+.header-component {
+    grid-column: 1 / span 3; 
+    grid-row: 1;
+    border-style: solid;
+}
+
+.sidebar-component {
+    grid-column: 1;
+    grid-row: 2;
+    border-style: solid;
+}
+
+.canvas-component {
+    grid-columns: 2;
+    grid-row: 2;
+    border-style: solid;
+}
+
+.palette-component {
+    grid-columns: 3;
+    grid-row: 2 ;
+    border-style: solid;
+}
+
+.frames-component {
+    grid-column: 1 / span 3;
+    grid-row: 3;
+    border-style: solid;
+}
+
